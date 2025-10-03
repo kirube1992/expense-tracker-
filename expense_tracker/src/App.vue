@@ -1,7 +1,7 @@
 <template>
   <Header />
-  <Balance :total="total" />
-  <IncomeExpence :income="income" :expenes="expenes" />
+  <Balance :total="+total" />
+  <IncomeExpence :income="+income" :expenes="+expenes" />
   <TransactionList :transactions="transactions" />
   <AddTrasaction />
 </template>
