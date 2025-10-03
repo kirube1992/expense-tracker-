@@ -25,6 +25,8 @@
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
 
+const emit = defineEmits(["trasactionSubmited"]);
+
 const toast = useToast();
 
 const text = ref("");
@@ -36,7 +38,12 @@ const onSubmit = () => {
     toast.error("Both filds must be filed");
     return;
   }
-  console.log(text.value, amount.value);
+  const trasactiondata = {
+    text: text.value,
+    amount: parseFloat(amount.value),
+  };
+
+  emit("trasactionSubmited", trasactiondata);
   text.value = "";
   amount.value = "";
 };
